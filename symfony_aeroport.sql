@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 16 avr. 2019 à 06:42
+-- Généré le :  mar. 16 avr. 2019 à 06:50
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:array)',
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
@@ -167,7 +167,8 @@ INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `password`, `gender`
 (58, 'Antoine', 'Moreau', 'qbruneau@dbmail.com', '$2y$12$JgScUgcUYCI8v4HLaVusY.GwbOWsmfQpaXEvRCo.nG1Llnkf9HGv.', 'Madame', '99, rue Gabrielle Lamy', 'GosselinBourg', 65487, 21458769, 'pilote', 1, 'a:0:{}'),
 (59, 'Sophie', 'Guillet', 'susanne.gerard@laposte.net', '$2y$12$kylXAGJJafAPbRBQwVv.Wen.xe0Z3HelNkHIC1PNJB7Ufj9b3ERPC', 'Madame', '8, avenue Roger Gregoire', 'Renard', 75114, 32145796, 'passenger', 1, 'a:0:{}'),
 (60, 'Navin', 'JOSEPH', 'coucou@gmail.com', '$2y$12$8u0EFKgvn8YKpkXR38P3Wumq2pij5xdSgqQ1vZju3jfnHGaF2umSe', 'Monsieur', '55 rue victor hugo', 'paris', 75012, 245784512, 'passenger', 1, 'a:0:{}'),
-(61, 'Jean', 'Paul', 'coucoul@gmail.com', '$2y$12$8gccHsJdcufcSBL.7ucmK.jorD68gkvu/.cLbMAFSRZgUh830ojf2', 'Monsieur', '11 Allée de l\'arlequin', 'nanterre', 92000, 675845745, 'passenger', 1, 'a:0:{}');
+(61, 'Jean', 'Paul', 'coucoul@gmail.com', '$2y$12$8gccHsJdcufcSBL.7ucmK.jorD68gkvu/.cLbMAFSRZgUh830ojf2', 'Monsieur', '11 Allée de l\'arlequin', 'nanterre', 92000, 675845745, 'passenger', 1, 'a:0:{}'),
+(62, 'Navin', 'JOSEPH', 'member@gmail.com', '$2y$12$aGF2gxbqSqDpUZgkYK.Cmer51tysIymkDvJQcMPLUyZ.cE.eD0sqy', 'Monsieur', '55 rue victor hugo', 'paris', 75012, 245784512, 'passenger', 1, 'a:0:{}');
 
 --
 -- Contraintes pour les tables déchargées
