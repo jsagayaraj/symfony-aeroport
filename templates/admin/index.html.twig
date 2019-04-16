@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+  {% include "include/menu.html.twig" %}
+
+  <div class="container dashbord">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="nav">
+          <li>
+            <a class="btn btn-primary" href="{{path('admin_show_user')}}">Users</a>
+          </li>
+          <br>
+          <li>
+            <a class="btn btn-primary" href="{{path('admin_show_vol_list')}}">Vols</a>
+          </li>
+          <br>
+          <li>
+            <a class="btn btn-primary" href="{{path('admin_ville')}}">Ville de Depart<span>
+                (25)
+              </span>
+            </a>
+
+          </li>
+          <br>
+          <li>
+            <a class="btn btn-primary" href="{{path('admin_arrivals')}}">Vile d'Arrivé</a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-md-4 text-center">
+
+        <h1>DASHBORD</h1>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>{% endblock %}

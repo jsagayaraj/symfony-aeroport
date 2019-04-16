@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+  {% include "include/menu.html.twig" %}
+  <div class="container-fluid">
+    <div class="row">
+      <img class="img-responsive" style="background-size:cover;" src="{{asset('assets/images/Dublin.jpg')}}" alt="">
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div
+      class="row">
+      <!--message affiché-->
+      {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+          {{message}}
+        </div>
+      {% endfor %}
+      <!--End message affiché-->
+      <div class="col-md-8 col-md-offset-2">
+        <h2>Ajouter de Vol</h2><hr>
+        {{form_start(form)}}
+        {{form_widget(form)}}
+        <button class="btn btn-primary" type="submit">Enregister</button>
+        {{form_end(form)}}
+      </div>
+    </div>
+  </div>
+{% endblock %}

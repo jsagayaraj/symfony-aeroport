@@ -1,0 +1,69 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+  {% include "include/menu.html.twig" %}
+  <div class="container-fluid">
+    <div class="row">
+      <img class="img-responsive" style="background-size:cover;" src="{{asset('assets/images/Dublin.jpg')}}" alt="">
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div
+      class="row">
+      <!--message affiché-->
+      {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+          {{message}}
+        </div>
+      {% endfor %}
+      <!--End message affiché-->
+      <h1>Liste de vols</h1>
+
+      <div class="text-right">
+        <a href="{{path('admin_add_vol')}}" class="btn btn-primary">Ajouter de Vol</a>
+      </div>
+      <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+            <th>Nom du Vol</th>
+            <th>N° du Vol</th>
+            <th>Ville de Depart</th>
+            <th>Ville d'Arriver</th>
+            <th>date & l'heure de Depart</th>
+            <th>Place Disponible</th>
+            <th>Photo</th>
+            <th>Prix</th>
+            <th>Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for flight in flights %}
+            <tr>
+              <td>{{flight.flightName}}</td>
+              <td>{{flight.flightNumber}}</td>
+              <td>{{flight.departures.villeDeDepart}}</td>
+              <td>{{flight.arrivals.villedAriver}}</td>
+              <td>{{flight.date | date('d M Y - H:i')}}</td>
+              <td>{{flight.maxPlace}}</td>
+              <td><img alt="" class="img-thumbnail" src="/images/uploads/{{flight.filename}}"></td>
+              <td>{{flight.formattedPrice}}€</td>
+              <td>
+                <a class="btn btn-warning" href="{{path('admin_edit_vol', {'id': flight.id})}}">Edit</a>
+                |
+                <!--DELETE-->
+                <form action="{{path('admin_delete_vol', {id:flight.id})}}" style="display:inline-block" method="POST">
+                  <input name="_method" type="hidden" value="DELETE">
+                  <input type="hidden" name="_token" value="{{csrf_token('delete' ~ flight.id)}}">
+                  <button class="btn btn-danger" onclick="return confirm('Etes vous vraiment sûr?')" type="submit">Delete</button>
+                </form>
+
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+  <style>
+    .form-check {
+      position: relative;
+      display: inline-block;
+      padding-left: 1.25rem;
+    }
+
+    .form-check:last-child {
+      padding-left: 5rem;
+    }
+  </style>
+
+{% endblock %}
+
+{% block body %}
+  {{ include("include/menu.html.twig") }}
+  <div class="container-fluid">
+    <div class="row">
+      <img class="img-responsive" style="background-size:cover;" src="{{asset('assets/images/Dublin.jpg')}}" alt="">
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <h2>Registration</h2>
+    {{form_start(form)}}
+    {{form_row(form.gender)}}
+    <div class="row">
+      <div class="col-md-6">
+        {{form_row(form.firstname, 
+          {attr:{'placeholder': 'Prenom'}}
+        )}}
+      </div>
+      <div class="col-md-6">
+        {{form_row(form.lastname, 
+          {attr:{'placeholder': 'Nom'}}
+        )}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        {{form_row(form.email, 
+          {attr:{'placeholder': 'Email'}}
+        )}}
+      </div>
+      <div class="col-md-6">
+        {{form_row(form.phoneNumber, 
+          {attr:{'placeholder': 'Télephpne'}}
+        )}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        {{form_row(form.password,
+          {attr:{'placeholder': 'Mot de passe'}}
+        )}}
+      </div>
+      <div class="col-md-6">
+        {{form_row(form.confirmPassword, 
+          {attr:{'placeholder': 'Re-enter mot de passe'}}
+        )}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        {{form_row(form.city,
+          {attr:{'placeholder': 'Ville'}}
+        )}}
+      </div>
+      <div class="col-md-6">
+        {{form_row(form.postalCode, 
+          {attr:{'placeholder': 'Code Postal'}}
+        )}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        {{form_row(form.address,
+          {attr:{'placeholder': 'Address'}}
+        )}}
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Créer mon compte</button>
+
+
+    {{form_end(form)}}
+  </div>
+{% endblock %}

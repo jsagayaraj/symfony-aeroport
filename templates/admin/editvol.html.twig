@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin/Add Flight
+{% endblock %}
+
+{% block body %}
+  {% include "include/menu.html.twig" %}
+  <div class="container-fluid">
+    <div class="row">
+      <img class="img-responsive" style="background-size:cover;" src="{{asset('assets/images/Dublin.jpg')}}" alt="">
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offest-2">
+        {{form_start(form)}}
+        {{form_widget(form)}}
+        <button class="btn btn-primary" type="submit">Editer</button>
+        {{form_end(form)}}
+      </div>
+    </div>
+  </div>
+{% endblock %}

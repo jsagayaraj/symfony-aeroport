@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+  {% include "include/menu.html.twig" %}
+  <!--slider start**********-->
+  <div class="slider">
+    <div class="callbacks_container">
+      <div class="slider-img w3-oneimg">
+        <div class="container">
+          <div class="slider-info">
+            <h6>The</h6>
+            <h4>International
+              <br>Airway</h4>
+            <p>Quis autem vel eum iure reprehderit.Etiam sed odio consequat tristique elit sed, molestie nulla.
+            </p>
+            <a href="{{path('showFlightList')}}" class="btn btn-primary ">Voir les Vol</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--slider end-->
+
+  <!-- login modal content -->
+  <div class="clearfix"></div>
+
+
+{% endblock %}

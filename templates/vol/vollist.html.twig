@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+  {% include "include/menu.html.twig" %}
+  <div class="container-fluid">
+    <div class="row">
+      <img class="img-responsive" style="background-size:cover;" src="{{asset('assets/images/Dublin.jpg')}}" alt="">
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row">
+      <h1>Liste de vol</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nom du Vol</th>
+            <th>N° du Vol</th>
+            <th>Ville de Depart</th>
+            <th>Ville d'Arriver</th>
+            <th>date & l'heure de Depart</th>
+            <th>Place Disponible</th>
+            <th>Photo</th>
+            <th>Prix</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for flight in flights %}
+            <tr>
+              <td>{{flight.flightName}}</td>
+              <td>{{flight.flightNumber}}</td>
+              <td>{{flight.departures.villeDeDepart}}</td>
+              <td>{{flight.arrivals.villedAriver}}</td>
+              <td>{{flight.date | date('d/m/Y - H:i')}}</td>
+              <td>{{flight.maxPlace}}</td>
+              <td><img alt="" class="img-thumbnail" src="/images/uploads/{{flight.filename}}"></td>>
+              <td>{{flight.formattedPrice}}€</td>
+              <td>
+                <a class="btn btn-success" href="{{path('show_flight', {'id': flight.id})}}">Voir l'Offre</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

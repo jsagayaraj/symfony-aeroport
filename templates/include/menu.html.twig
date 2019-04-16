@@ -1,0 +1,71 @@
+<div class="header-w3layouts">
+  <div class="container">
+    <div class="header-bar">
+      <nav class="navbar navbar-default">
+        <div class="navbar-header navbar-left">
+          <button class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <h1>
+            <a class="navbar-brand" href="{{path('home')}}">Aeroport
+            </a>
+          </h1>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+          <nav>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active">
+                <a href="{{path('home')}}">
+                  <span aria-hidden="true" class="fa fa-home banner-nav"></span>Home</a>
+              </li>
+              {% if is_granted('ROLE_USER') %}
+                <li>
+                  <a href="{{path('profile')}}">
+                    <span aria-hidden="true" class="fa fa-info-circle banner-nav"></span>Profile</a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span aria-hidden="true" class="fa fa-info-circle banner-nav"></span>Mes Reservation</a>
+                </li>
+              {% endif %}
+
+              {% if is_granted('ROLE_ADMIN') %}
+                <li class="active">
+                  <a href="{{path('admin')}}">
+                    <span aria-hidden="true" class="fa fa-home banner-nav"></span>Dashbord</a>
+                </li>
+
+                <li>
+                  <a href="{{path('logout')}}">
+                    <span aria-hidden="true" class="fa fa-info-circle banner-nav"></span>Déconnexion</a>
+                </li>
+              {% elseif is_granted('ROLE_USER') %}
+                <li>
+                  <a href="{{path('logout')}}">
+                    <span aria-hidden="true" class="fa fa-info-circle banner-nav"></span>Déconnexion</a>
+                </li>
+              {% else %}
+                <li>
+                  <a href="{{path('registration')}}">
+                    <span aria-hidden="true" class="fa fa-cogs banner-nav"></span>Inscription</a>
+                </li>
+                <li>
+                  <a href="{{path('login')}}">
+                    <span aria-hidden="true" class="fa fa-file banner-nav"></span>Connexion<span></span>
+                  </a>
+                </li>
+
+              {% endif %}
+
+
+            </ul>
+          </nav>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>

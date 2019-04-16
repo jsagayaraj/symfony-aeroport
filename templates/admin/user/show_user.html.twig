@@ -1,0 +1,73 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+  {% include "include/menu.html.twig" %}
+  <div class="container-fluid">
+    <div class="row">
+      <img class="img-responsive" style="background-size:cover;" src="{{asset('assets/images/Dublin.jpg')}}" alt="">
+    </div>
+  </div>
+  <br>
+
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-md-12">
+        <!--message affiché-->
+        {% for message in app.flashes('success') %}
+          <div class="alert alert-success">
+            {{message}}
+          </div>
+        {% endfor %}
+        <!--End message affiché-->
+        <h1>Users</h1>
+
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Gender</th>
+              <th>Prenom</th>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Télephone</th>
+              <th>Ville</th>
+              <th>Code Postal</th>
+              <th>Adresse</th>
+              <th>Statue</th>
+              <th>isActive</th>
+
+              <th>Actions</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+              <tr>
+                <td>{{user.gender}}</td>
+                <td>{{user.firstname}}</td>
+                <td>{{user.lastname}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phoneNumber}}</td>
+
+                <td>{{user.city}}</td>
+                <td>{{user.postalCode}}</td>
+                <td>{{user.address}}</td>
+                <td>{{user.status}}</td>
+
+                <td>{{user.isActive}}</td>
+
+                <td>
+                  <a class="btn btn-warning" href="{{path('admin_edit_user', {'id': user.id})}}">Edit</a>
+
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+  </div>
+{% endblock %}

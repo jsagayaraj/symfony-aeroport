@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+  {% include "include/menu.html.twig" %}
+  <div class="container-fluid">
+    <div class="row">
+      <img class="img-responsive" style="background-size:cover;" src="{{asset('assets/images/Dublin.jpg')}}" alt="">
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row">
+      <h2>Profile</h2>
+      <div class="col-md-6 col-md-offset-3">
+        <h5>Nom:
+          {{app.user.lastname|upper}}</h5>
+        <h5>Prenom:
+          {{app.user.firstname|capitalize}}</h5>
+        <h5>Email:
+          {{app.user.email}}</h5>
+        <h5>Telephone:
+          {{app.user.phoneNumber}}</h5>
+        <h5>Ville:
+          {{app.user.city}}</h5>
+        <h5>Code Postal:
+          {{app.user.postalCode}}</h5>
+        <h5>Adresse:
+          {{app.user.address}}</h5>
+        <h5>Statue:
+          {{app.user.status}}</h5>
+      </div>
+    </div>
+  </div>
+
+
+</div></div>{% endblock %}

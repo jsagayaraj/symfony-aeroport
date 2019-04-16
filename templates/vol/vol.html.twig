@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+  {% include "include/menu.html.twig" %}
+  <div class="container-fluid">
+    <div class="row">
+      <img class="img-responsive" style="background-size:cover;" src="{{asset('assets/images/Dublin.jpg')}}" alt="">
+    </div>
+  </div>
+  <br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <td><img alt="" class="img-thumbnail" src="/images/uploads/{{flight.filename}}"></td>
+      </div>
+      <div class="col-md-9">
+        <h5>Vol :
+          {{flight.flightName}}</h5>
+        <h5>N° de Vol:
+          {{flight.flightNumber}}</h5>
+
+
+        <h5>Vile de Depart:
+          {{flight.departures.villeDeDepart}}</h5>
+        <h5>Ville d'Arriver:
+          {{flight.arrivals.villedAriver}}</h5>
+
+
+      </div>
+    </div>
+  {% endblock %}

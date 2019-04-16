@@ -1,0 +1,60 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+  <style>
+    .form-check {
+      position: relative;
+      display: inline-block;
+      padding-left: 1.25rem;
+    }
+
+    .form-check:last-child {
+      padding-left: 5rem;
+    }
+  </style>
+
+{% endblock %}
+
+{% block body %}
+  {{ include("include/menu.html.twig") }}
+  <div class="container-fluid">
+    <div class="row">
+      <img class="img-responsive" style="background-size:cover;" src="{{asset('assets/images/Dublin.jpg')}}" alt="">
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <h2>Registration</h2>
+    {{form_start(form)}}
+
+    <div class="row">
+      <div class="col-md-6">
+        {{form_row(form.firstname, 
+          {attr:{'placeholder': 'Prenom'}}
+        )}}
+      </div>
+      <div class="col-md-6">
+        {{form_row(form.lastname, 
+          {attr:{'placeholder': 'Nom'}}
+        )}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        {{form_row(form.status, 
+          {attr:{'placeholder': 'Prenom'}}
+        )}}
+      </div>
+      <div class="col-md-6">
+        {{form_row(form.roles, 
+          {attr:{'placeholder': 'Nom'}}
+        )}}
+      </div>
+    </div>
+
+
+    <button class="btn btn-primary" type="submit">Modifier</button>
+
+
+    {{form_end(form)}}
+  </div>
+{% endblock %}
